@@ -17,10 +17,10 @@ module "firewall_rules" {
     source_service_accounts = null
     target_tags             = null
     target_service_accounts = null
-    allow = [{
-      protocol = "tcp"
-      ports    = ["22"]
-    }]
+    allow = [
+#      protocol = "tcp"
+#      ports    = ["22"]
+    ]
     deny = []
     log_config = {
       metadata = "INCLUDE_ALL_METADATA"
