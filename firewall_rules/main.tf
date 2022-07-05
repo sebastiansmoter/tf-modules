@@ -1,6 +1,7 @@
 terraform {
   required_version = "1.2.3"
 }
+
 module "firewall_rules" {
   source       = "terraform-google-modules/network/google//modules/firewall-rules"
   project_id = var.project_id
@@ -16,10 +17,10 @@ module "firewall_rules" {
     source_service_accounts = null
     target_tags             = ["foo", "bar"]
     target_service_accounts = null
-    allow = [
+    allow = [{
       protocol = "tcp"
       ports    = ["22"]
-    ]
+    }]
     deny = []
     log_config = {
       metadata = "INCLUDE_ALL_METADATA"
