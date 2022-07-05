@@ -2,7 +2,7 @@ terraform {
   required_version = "1.2.3"
 }
 
-resource "firewall_rules" {
+module "firewall_rules" {
   source       = "terraform-google-modules/network/google//modules/firewall-rules"
   project_id = var.project_id
   network_name = var.network_name
