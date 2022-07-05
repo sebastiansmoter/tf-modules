@@ -2,7 +2,7 @@ terraform {
   required_version = "1.2.3"
 }
 
-module "cloud_router" {
+resource "cloud_router" {
   source  = "terraform-google-modules/cloud-router/google"
   version = "~> 0.4"
   name    = var.router_name
