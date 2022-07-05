@@ -3,7 +3,6 @@ terraform {
 }
 
 resource "cloud_router" "default"{
-  source  = "terraform-google-modules/cloud-router/google"
   version = "~> 0.4"
   name    = var.router_name
   network = var.network_name
