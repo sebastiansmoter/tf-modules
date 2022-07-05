@@ -2,8 +2,8 @@ terraform {
   required_version = "1.2.3"
 }
 
-resource "google_compute_firewall" "default"{
-  name = var.firewall_name
+module "firewall_rules" {
+  source       = "terraform-google-modules/network/google//modules/firewall-rules"
   project_id = var.project_id
   network_name = var.network_name
 
