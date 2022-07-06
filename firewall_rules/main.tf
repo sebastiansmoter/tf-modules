@@ -10,7 +10,7 @@ resource "google_compute_firewall" "default"{
     protocol = "all"
   }
 }
-resource "google_compute_firewall" "default"{
+resource "google_compute_firewall" "default1"{
   name = var.firewall_name_1
   network = var.network_name
   source_tags =["foo", "bar"]
