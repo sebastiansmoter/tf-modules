@@ -1,31 +1,28 @@
 terraform {
   required_version = "1.2.3"
 }
-resource "google_compute_firewall" "default"{
+resource "google_compute_firewall" "blockall"{
   name = var.firewall_name
   network = var.network_name
   source_tags =["foo", "bar"]
 
-    deny{
+  deny{
     protocol = "all"
-    }
-    allow{
-    protocol = "tcp"
-    ports = ["22"]
-    }
+  }
 }
-/*
-resource "google_compute_firewall" "default1"{
+
+resource "google_compute_firewall" "ssh"{
   name = var.firewall_name_1
   network = var.network_name
   source_tags =["foo", "bar"]
+  direction = ingress
 
   allow{
     protocol = "tcp"
     ports = ["22"]
   }
 }
-*/
+
 
 
 /*
