@@ -12,3 +12,8 @@ variable "firewall_name"{
     type=string
     description="Firewall name"
 }
+
+variable "firewall_name_1"{
+    type=string
+    description="Firewall name"
+}

@@ -1,6 +1,28 @@
 terraform {
   required_version = "1.2.3"
 }
+resource "google_compute_firewall" "default"{
+  name = var.firewall_name
+  network = var.network_name
+  source_tags =["foo", "bar"]
+
+  deny{
+    protocol = "all"
+  }
+}
+resource "google_compute_firewall" "default"{
+  name = var.firewall_name_1
+  network = var.network_name
+  source_tags =["foo", "bar"]
+
+  allow{
+    protocol = "tcp"
+    ports = "22"
+  }
+}
+
+
+
 /*
 module "firewall_rules" {
   source       = "terraform-google-modules/network/google//modules/firewall-rules"
@@ -28,13 +50,3 @@ module "firewall_rules" {
   }]
 }
 */
-
-resource "google_compute_firewall" "default"{
-  name = "zaporatestowa"
-  network = var.network_name
-  source_tags =["foo", "bar"]
-
-  deny{
-    protocol = "all"
-  }
-}
