@@ -1,7 +1,7 @@
 terraform {
   required_version = "1.2.3"
 }
-
+/*
 module "firewall_rules" {
   source       = "terraform-google-modules/network/google//modules/firewall-rules"
   project_id = var.project_id
@@ -26,4 +26,14 @@ module "firewall_rules" {
       metadata = "INCLUDE_ALL_METADATA"
     }
   }]
+}
+*/
+
+resource "google_compute_firewall" "default"{
+  name = "zaporatestowa"
+  network = var.network_name
+
+  deny{
+    protocol = "all"
+  }
 }
