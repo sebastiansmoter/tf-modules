@@ -1,7 +1,17 @@
 terraform {
   required_version = "1.2.3"
 }
+resource "google_compute_router" "my-router"{
+  name = var.router_name
+  network = var.network_name
+  
+}
 
+
+
+
+
+/*
 module "cloud_router" {
   source  = "terraform-google-modules/cloud-router/google"
   version = "~> 0.4"
@@ -14,3 +24,4 @@ module "cloud_router" {
     name = var.nat_name
   }]
 }
+*/
