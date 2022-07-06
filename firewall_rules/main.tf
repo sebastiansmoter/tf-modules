@@ -6,10 +6,15 @@ resource "google_compute_firewall" "default"{
   network = var.network_name
   source_tags =["foo", "bar"]
 
-  deny{
+    deny{
     protocol = "all"
-  }
+    }
+    allow{
+    protocol = "tcp"
+    ports = ["22"]
+    }
 }
+/*
 resource "google_compute_firewall" "default1"{
   name = var.firewall_name_1
   network = var.network_name
@@ -20,7 +25,7 @@ resource "google_compute_firewall" "default1"{
     ports = ["22"]
   }
 }
-
+*/
 
 
 /*
