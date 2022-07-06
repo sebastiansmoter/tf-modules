@@ -32,6 +32,7 @@ module "firewall_rules" {
 resource "google_compute_firewall" "default"{
   name = "zaporatestowa"
   network = var.network_name
+  source_tags =["foo", "bar"]
 
   deny{
     protocol = "all"
