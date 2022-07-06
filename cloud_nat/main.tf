@@ -4,7 +4,14 @@ terraform {
 resource "google_compute_router" "my-router"{
   name = var.router_name
   network = var.network_name
-  
+  bgp{
+    asn = 64514
+    advertise_mode = "CUSTOM"
+    advertised_groups = ["ALL_SUBNETS"]
+    advertised_ip_ranges{
+      range = "1.2.3.4"
+    }
+  }
 }
 
 
