@@ -16,6 +16,7 @@ resource "google_compute_firewall" "ssh"{
   network = var.network_name
   source_tags =["foo", "bar"]
   direction = "INGRESS"
+  source_ranges = ["0.0.0.0/0"]
 
   allow{
     protocol = "tcp"
